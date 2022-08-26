@@ -10,5 +10,8 @@ publish:
 lint:
 	npx eslint .
 
-# brain-games:
-# 	node bin/brain-games.js
+test:
+	npm test
+
+start:
+	gendiff -h
