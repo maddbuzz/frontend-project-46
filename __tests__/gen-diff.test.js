@@ -16,7 +16,7 @@ const jsonData2 = `{
   "host": "hexlet.io"
 }`;
 
-const jsonDiff = `{
+const diff12 = `{
   - follow: false
     host: hexlet.io
   - proxy: 123.234.53.22
@@ -25,6 +25,16 @@ const jsonDiff = `{
   + verbose: true
 }`;
 
+const diff21 = `{
+  + follow: false
+    host: hexlet.io
+  + proxy: 123.234.53.22
+  - timeout: 20
+  + timeout: 50
+  - verbose: true
+}`;
+
 test('genDiff flat testing', () => {
-  expect(genDiff(jsonData1, jsonData2)).toMatch(jsonDiff);
+  expect(genDiff(jsonData1, jsonData2)).toMatch(diff12);
+  expect(genDiff(jsonData2, jsonData1)).toMatch(diff21);
 });

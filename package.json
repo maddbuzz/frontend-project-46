@@ -1,6 +1,6 @@
 {
   "name": "@hexlet/code",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "type": "module",
   "bin": {
     "gendiff": "bin/cli.js"
@@ -27,6 +27,7 @@
     "jest": "^28.1.3"
   },
   "dependencies": {
-    "commander": "^9.4.0"
+    "commander": "^9.4.0",
+    "lodash": "^4.17.21"
   }
 }
