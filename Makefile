@@ -1,4 +1,4 @@
-install: install-deps
+setup: install-deps
 	npm link
 
 install-deps:
@@ -12,7 +12,9 @@ lint:
 
 test:
 	npx jest
-	# npm test
+
+test-watch:
+	npx jest --watch
 
 start:
 	gendiff -h
