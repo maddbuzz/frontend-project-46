@@ -11,7 +11,8 @@ lint:
 	npx eslint .
 
 test:
-	npm test
+	npx jest
+	# npm test
 
 start:
 	gendiff -h

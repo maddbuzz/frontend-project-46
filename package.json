@@ -8,7 +8,7 @@
   "description": "[![Actions Status](https://github.com/maddbuzz/frontend-project-46/workflows/hexlet-check/badge.svg)](https://github.com/maddbuzz/frontend-project-46/actions)",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "npx jest"
   },
   "repository": {
     "type": "git",
