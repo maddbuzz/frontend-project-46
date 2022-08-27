@@ -31,4 +31,4 @@ make lint
 ```
 
 ## Demo
-[![asciicast](https://asciinema.org/a/517276.svg)](https://asciinema.org/a/517276)
+[![asciicast](https://asciinema.org/a/517417.svg)](https://asciinema.org/a/517417)

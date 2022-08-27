@@ -17,7 +17,7 @@ test-coverage:
 	npm test -- --coverage --coverageProvider=v8
 
 test-watch:
-	npm test -- --watch
+	npm run jest-watch
 
 start:
 	gendiff -h
