@@ -1,9 +1,17 @@
-### Hexlet tests and linter status:
+###  Tests, Linter, Maintainability, Test coverage statuses:
 [![Actions Status](https://github.com/maddbuzz/frontend-project-46/workflows/hexlet-check/badge.svg)](https://github.com/maddbuzz/frontend-project-46/actions)
-
 [![Actions Status](https://github.com/maddbuzz/frontend-project-46/actions/workflows/ci.yml/badge.svg)](https://github.com/maddbuzz/frontend-project-46/actions/workflows/ci.yml)
 [![Maintainability](https://api.codeclimate.com/v1/badges/43c2a67157108c7ee3c8/maintainability)](https://codeclimate.com/github/maddbuzz/frontend-project-46/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/43c2a67157108c7ee3c8/test_coverage)](https://codeclimate.com/github/maddbuzz/frontend-project-46/test_coverage)
+
+# Difference Calculator
+
+A difference calculator is a program that determines the difference between two data structures. This is a popular task for which there are many online services, such as http://www.jsondiff.com/. A similar mechanism is used when outputting tests or when automatically tracking changes in configuration files.
+
+Utility features:
+
+Support for different input formats: yaml, json
+Report generation in the form of plain text, stylish and json
 
 ## System requirements
 
@@ -18,17 +26,5 @@ make setup
 make start
 ```
 
-## Run tests
-
-```sh
-make test
-```
-
-## Run linter
-
-```sh
-make lint
-```
-
-## Demo
+## Usage example
 [![asciicast](https://asciinema.org/a/517417.svg)](https://asciinema.org/a/517417)
