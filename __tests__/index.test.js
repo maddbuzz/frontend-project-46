@@ -11,8 +11,9 @@ const jsonFileName1 = 'file3.json';
 const jsonFileName2 = 'file4.json';
 const yamlFileName1 = 'file3.yaml';
 const yamlFileName2 = 'file4.yaml';
-const diffFileName = 'file4-file3.diff';
-// const diffActualFileName = 'file4-file3.diff.actual';
+const stylishFileName = 'file4-file3.stylish';
+const plainFileName = 'file4-file3.plain';
+// const stylishActualFileName = ;
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -28,16 +29,23 @@ beforeAll(() => {
   writeFile(yamlFileName2, yaml.dump(obj2));
 });
 
-test('getFilesDiff JSONs testing', () => {
-  const diffFile = readFile(diffFileName);
-  const actual = getFilesDiff(getFixturePath(jsonFileName1), getFixturePath(jsonFileName2));
-  // writeFile(diffActualFileName, actual);
-  expect(actual)
+test('getFilesDiff "stylish" testing', () => {
+  const formatName = 'stylish';
+  const diffFile = readFile(stylishFileName);
+  // const actual = getFilesDiff(getFixturePath(jsonFileName1), getFixturePath(yamlFileName2));
+  // writeFile(stylishActualFileName, actual);
+  // expect(actual).toMatch(diffFile);
+  expect(getFilesDiff(getFixturePath(jsonFileName1), getFixturePath(yamlFileName2)))
+    .toMatch(diffFile);
+  expect(getFilesDiff(getFixturePath(yamlFileName1), getFixturePath(jsonFileName2), formatName))
     .toMatch(diffFile);
 });
 
-test('getFilesDiff YAMLs testing', () => {
-  const diffFile = readFile(diffFileName);
-  expect(getFilesDiff(getFixturePath(yamlFileName1), getFixturePath(yamlFileName2)))
+test('getFilesDiff "plain" testing', () => {
+  const formatName = 'plain';
+  const diffFile = readFile(plainFileName);
+  expect(getFilesDiff(getFixturePath(jsonFileName1), getFixturePath(yamlFileName2), formatName))
+    .toMatch(diffFile);
+  expect(getFilesDiff(getFixturePath(yamlFileName1), getFixturePath(jsonFileName2), formatName))
     .toMatch(diffFile);
 });
