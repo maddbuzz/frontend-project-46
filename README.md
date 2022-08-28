@@ -25,4 +25,4 @@ make start
 ```
 
 ## Usage example
-[![asciicast](https://asciinema.org/a/517417.svg)](https://asciinema.org/a/517417)
+[![asciicast](https://asciinema.org/a/517553.svg)](https://asciinema.org/a/517553)

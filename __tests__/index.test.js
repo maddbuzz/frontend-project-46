@@ -7,16 +7,12 @@ import { fileURLToPath } from 'url';
 import yaml from 'js-yaml';
 import getFilesDiff from '../index.js';
 
-const jsonFileName1 = 'file1.json';
-const jsonFileName2 = 'file2.json';
-const diffFileName = 'file2-file1.diff';
-const yamlFileName1 = 'file1.yaml';
-const yamlFileName2 = 'file2.yaml';
-// const jsonFileName1 = 'file3.json';
-// const jsonFileName2 = 'file4.json';
-// const diffFileName = 'file4-file3.diff';
-// const yamlFileName1 = 'file3.yaml';
-// const yamlFileName2 = 'file4.yaml';
+const jsonFileName1 = 'file3.json';
+const jsonFileName2 = 'file4.json';
+const yamlFileName1 = 'file3.yaml';
+const yamlFileName2 = 'file4.yaml';
+const diffFileName = 'file4-file3.diff';
+// const diffActualFileName = 'file4-file3.diff.actual';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -34,7 +30,9 @@ beforeAll(() => {
 
 test('getFilesDiff JSONs testing', () => {
   const diffFile = readFile(diffFileName);
-  expect(getFilesDiff(getFixturePath(jsonFileName1), getFixturePath(jsonFileName2)))
+  const actual = getFilesDiff(getFixturePath(jsonFileName1), getFixturePath(jsonFileName2));
+  // writeFile(diffActualFileName, actual);
+  expect(actual)
     .toMatch(diffFile);
 });
 
