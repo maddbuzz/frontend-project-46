@@ -2,6 +2,7 @@
 import isEqual from 'lodash/isEqual.js';
 import cloneDeep from 'lodash/cloneDeep.js';
 import isPlainObject from 'lodash/isPlainObject.js';
+import _set from 'lodash/set.js';
 
 export function getState(state) {
   switch (state) {
@@ -18,7 +19,7 @@ export function genDiff(obj1, obj2) {
   return mergedKeys
     .reduce((acc, key) => {
       const makeValue = (val) => (isPlainObject(val) ? genDiff(val, val) : cloneDeep(val));
-      const updateAcc = (state, value) => { acc[key] = [state, value]; };
+      const updateAcc = (state, value) => { _set(acc, [key], [state, value]); };
       const val1 = obj1[key];
       const val2 = obj2[key];
 

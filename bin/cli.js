@@ -15,9 +15,9 @@ program
   .helpOption('-h, --help', 'output usage information')
   .configureHelp({ sortOptions: true });
 
-program.action(function () {
+program.action((filepath1, filepath2, options) => {
   console.log();
-  console.log(getFilesDiff(this.args[0], this.args[1], this.opts().format));
+  console.log(getFilesDiff(filepath1, filepath2, options.format));
 });
 
 function errorColor(str) {
