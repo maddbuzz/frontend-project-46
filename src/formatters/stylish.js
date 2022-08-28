@@ -16,20 +16,16 @@ export default function formatStylish(diffData, depth = 0) {
   const lines = sortBy(entries)
     .map(([key, [state, val]]) => {
       switch (state) {
-        case getState('added'):
-          return makeLine('+', key, val);
-        case getState('removed'):
-          return makeLine('-', key, val);
-        case getState('unchanged'):
-          return makeLine(' ', key, val);
+        case getState('added'): return makeLine('+', key, val);
+        case getState('removed'): return makeLine('-', key, val);
+        case getState('unchanged'): return makeLine(' ', key, val);
         case getState('changed'): {
           const [val1, val2] = val;
           const line1 = makeLine('-', key, val1);
           const line2 = makeLine('+', key, val2);
           return `${line1}\n${line2}`;
         }
-        default:
-          throw new Error(`Unexpected state ${state}`);
+        default: throw new Error(`Unexpected state ${state}`);
       }
     });
   return `{\n${lines.join('\n')}\n${bracketIndents}}`;
