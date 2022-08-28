@@ -7,6 +7,8 @@ export default function getFormatter(formatName) {
       return formatStylish;
     case 'plain':
       return formatPlain;
+    case 'json':
+      return JSON.stringify;
     default:
       throw new Error(`Unsupported format <${formatName}>`);
   }
