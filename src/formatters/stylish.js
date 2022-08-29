@@ -5,11 +5,12 @@ import getState from '../helpers.js';
 const indent = '  ';
 
 export default function formatStylish(diffData, depth = 0) {
+  if (!_isPlainObject(diffData)) return diffData;
   const indentsCount = 1 + depth * 2;
   const indents = indent.repeat(indentsCount);
   const bracketIndents = indent.repeat(indentsCount - 1);
   const makeLine = (state, key, val) => (
-    `${indents}${state} ${key}: ${_isPlainObject(val) ? formatStylish(val, depth + 1) : val}`
+    `${indents}${state} ${key}: ${formatStylish(val, depth + 1)}`
   );
   const entries = Object.entries(diffData);
   const lines = _sortBy(entries)
