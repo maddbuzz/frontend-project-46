@@ -1,6 +1,6 @@
 import path from 'path';
 import { readFileSync } from 'fs';
-import { genDiff } from './src/gen-diff.js';
+import genDiff from './src/index.js';
 import getFormatter from './src/formatters/index.js';
 import getParser from './src/parsers.js';
 

@@ -16,8 +16,7 @@ program
   .configureHelp({ sortOptions: true });
 
 program.action((filepath1, filepath2, options) => {
-  console.log();
-  console.log(getFilesDiff(filepath1, filepath2, options.format));
+  console.log(`\n${getFilesDiff(filepath1, filepath2, options.format)}`);
 });
 
 function errorColor(str) {

@@ -1,6 +1,6 @@
-import isPlainObject from 'lodash/isPlainObject.js';
-import sortBy from 'lodash/sortBy.js';
-import { getState } from '../gen-diff.js';
+import _isPlainObject from 'lodash/isPlainObject.js';
+import _sortBy from 'lodash/sortBy.js';
+import getState from '../helpers.js';
 
 const indent = '  ';
 
@@ -9,11 +9,10 @@ export default function formatStylish(diffData, depth = 0) {
   const indents = indent.repeat(indentsCount);
   const bracketIndents = indent.repeat(indentsCount - 1);
   const makeLine = (state, key, val) => (
-    `${indents}${state} ${key}: ${(isPlainObject(val) ? formatStylish(val, depth + 1) : val)}`
+    `${indents}${state} ${key}: ${_isPlainObject(val) ? formatStylish(val, depth + 1) : val}`
   );
-
   const entries = Object.entries(diffData);
-  const lines = sortBy(entries)
+  const lines = _sortBy(entries)
     .map(([key, [state, val]]) => {
       switch (state) {
         case getState('added'): return makeLine('+', key, val);
