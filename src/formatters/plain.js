@@ -11,20 +11,20 @@ const stringify = (val) => {
 
 const getPathStr = (path) => path.join('.');
 
-export default function formatPlain(diffData, path = []) {
-  function processState(state, val, currentPath) {
-    switch (state) {
-      case getState('unchanged'): return _isPlainObject(val) ? formatPlain(val, currentPath) : [];
-      case getState('added'): return `Property '${getPathStr(currentPath)}' was added with value: ${stringify(val)}`;
-      case getState('removed'): return `Property '${getPathStr(currentPath)}' was removed`;
-      case getState('changed'): {
-        const [val1, val2] = val;
-        return `Property '${getPathStr(currentPath)}' was updated. From ${stringify(val1)} to ${stringify(val2)}`;
-      }
-      default: throw new Error(`Unexpected state ${state}`);
+function processState(state, val, currentPath) {
+  switch (state) {
+    case getState('unchanged'): return _isPlainObject(val) ? formatPlain(val, currentPath) : [];
+    case getState('added'): return `Property '${getPathStr(currentPath)}' was added with value: ${stringify(val)}`;
+    case getState('removed'): return `Property '${getPathStr(currentPath)}' was removed`;
+    case getState('changed'): {
+      const [val1, val2] = val;
+      return `Property '${getPathStr(currentPath)}' was updated. From ${stringify(val1)} to ${stringify(val2)}`;
     }
+    default: throw new Error(`Unexpected state ${state}`);
   }
+}
 
+export default function formatPlain(diffData, path = []) {
   const entries = Object.entries(diffData);
   const lines = _sortBy(entries)
     .flatMap(([key, [state, val]]) => {
