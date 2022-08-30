@@ -1,11 +1,11 @@
 {
   "name": "@hexlet/code",
-  "version": "0.1.0",
+  "version": "0.25.0",
   "type": "module",
   "bin": {
     "gendiff": "bin/cli.js"
   },
-  "description": "[![Actions Status](https://github.com/maddbuzz/frontend-project-46/workflows/hexlet-check/badge.svg)](https://github.com/maddbuzz/frontend-project-46/actions)",
+  "description": "A difference calculator that determines the difference between two data structures",
   "main": "index.js",
   "scripts": {
     "test": "npx jest",

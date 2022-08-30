@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-/* eslint-disable func-names */
 
 import { Command } from 'commander';
 import getFilesDiff from '../index.js';
@@ -19,7 +18,7 @@ program.action((filepath1, filepath2, options) => {
   console.log(`\n${getFilesDiff(filepath1, filepath2, options.format)}`);
 });
 
-function errorColor(str) {
+function makeTextRed(str) {
   // Add ANSI escape codes to display text in red.
   return `\x1b[31m${str}\x1b[0m`;
 }
@@ -30,7 +29,7 @@ try {
   program.parse(process.argv);
 } catch (err) {
   if (err.exitCode === undefined) {
-    console.log(errorColor(err.message));
+    console.log(makeTextRed(err.message));
     process.exit(1);
   }
   process.exit(err.exitCode);

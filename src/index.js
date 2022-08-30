@@ -1,4 +1,3 @@
-// @ts-nocheck
 import _isEqual from 'lodash/isEqual.js';
 import _cloneDeep from 'lodash/cloneDeep.js';
 import _isPlainObject from 'lodash/isPlainObject.js';
