@@ -1,6 +1,4 @@
-/* eslint-disable no-undef */
-// @ts-nocheck
-
+import { test, expect } from '@jest/globals';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
